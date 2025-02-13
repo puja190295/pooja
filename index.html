@@ -1,5 +1,24 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Family Tree Application"/><title>Family Tree</title><link href="/static/css/main.19407cc2.chunk.css" rel="stylesheet"><script>
-    window.onload = function() {
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <meta name="description" content="Family Tree Application"/>
+    <title>Family Tree</title>
+    <link href="/static/css/main.19407cc2.chunk.css" rel="stylesheet">
+    <!-- Add style for the background image -->
+    <style>
+      body {
+        background-image: url('background.jpg'); /* adjust the path to your image as needed */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+      }
+    </style>
+    <script>
+      window.onload = function() {
         const audio = document.getElementById('bgMusic');
         let hasInteracted = false;
         
@@ -11,47 +30,55 @@
         console.log('Audio source set to:', audioSource.src);
         
         function handleInteraction(event) {
-            console.log('Interaction detected:', event.type);
-            if (!hasInteracted) {
-                hasInteracted = true;
-                audio.loop = true;
-                audio.volume = .5;
-                
-                // Try to play immediately and on user gesture
-                const playAudio = () => {
-                    const playPromise = audio.play();
-                    if (playPromise !== undefined) {
-                        playPromise
-                            .then(() => console.log('Audio playing successfully'))
-                            .catch(error => {
-                                console.error('Play failed:', error);
-                                // Add a visible play button as fallback
-                                if (!document.getElementById('playButton')) {
-                                    const playButton = document.createElement('button');
-                                    playButton.id = 'playButton';
-                                    playButton.innerHTML = '▶️ Play Music';
-                                    playButton.style.position = 'fixed';
-                                    playButton.style.top = '20px';
-                                    playButton.style.left = '20px';
-                                    playButton.style.zIndex = '1000';
-                                    playButton.onclick = () => audio.play();
-                                    document.body.appendChild(playButton);
-                                }
-                            });
+          console.log('Interaction detected:', event.type);
+          if (!hasInteracted) {
+            hasInteracted = true;
+            audio.loop = true;
+            audio.volume = .5;
+            
+            // Try to play immediately and on user gesture
+            const playAudio = () => {
+              const playPromise = audio.play();
+              if (playPromise !== undefined) {
+                playPromise
+                  .then(() => console.log('Audio playing successfully'))
+                  .catch(error => {
+                    console.error('Play failed:', error);
+                    // Add a visible play button as fallback
+                    if (!document.getElementById('playButton')) {
+                      const playButton = document.createElement('button');
+                      playButton.id = 'playButton';
+                      playButton.innerHTML = '▶️ Play Music';
+                      playButton.style.position = 'fixed';
+                      playButton.style.top = '20px';
+                      playButton.style.left = '20px';
+                      playButton.style.zIndex = '1000';
+                      playButton.onclick = () => audio.play();
+                      document.body.appendChild(playButton);
                     }
-                };
-                
-                playAudio();
-            }
+                  });
+              }
+            };
+            
+            playAudio();
+          }
         }
-
+  
         ['click', 'scroll', 'mousemove', 'keydown', 'touchstart'].forEach(event => {
-            document.addEventListener(event, handleInteraction, { once: true });
+          document.addEventListener(event, handleInteraction, { once: true });
         });
-    }
-</script></head><body><noscript>You need to enable JavaScript to run this app.</noscript>
-<audio id="bgMusic" preload="auto">
-    <source src="/song1.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-<div id="root"></div><script>!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=this["webpackJsonpfamily-tree"]=this["webpackJsonpfamily-tree"]||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([])</script><script src="/static/js/2.6564ef2a.chunk.js"></script><script src="/static/js/main.12c1b23e.chunk.js"></script></body></html>
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <audio id="bgMusic" preload="auto">
+      <source src="/song1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <div id="root"></div>
+    <script>!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=this["webpackJsonpfamily-tree"]=this["webpackJsonpfamily-tree"]||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([])</script>
+    <script src="/static/js/2.6564ef2a.chunk.js"></script>
+    <script src="/static/js/main.12c1b23e.chunk.js"></script>
+  </body>
+</html>
